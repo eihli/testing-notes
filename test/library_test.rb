@@ -14,7 +14,7 @@ class LibraryTest < MiniTest::Test
 
   def test_add_book_to_library
     library = Library.new 'San Francisco Public Library'
-    book = Book.new 'Wealth of Nations', 'Adam Smith'
+    book = Book.new 'Wealth of Nations', 'Adam Smith', 544
     library.add book
     assert_equal library.books, [book]
   end
@@ -25,7 +25,7 @@ class LibraryTest < MiniTest::Test
   # 'pages' attribute.
   def test_library_has_standards
     library = Library.new 'San Francisco Public Library'
-    book = Book.new 'Cat in the Hat', 'Dr. Seuss'
+    book = Book.new 'Cat in the Hat', 'Dr. Seuss', 61
     library.add book
     assert_equal library.books, []
   end
