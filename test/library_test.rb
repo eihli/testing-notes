@@ -18,4 +18,15 @@ class LibraryTest < MiniTest::Test
     library.add book
     assert_equal library.books, [book]
   end
+
+  # We want our library to have standards. We only want to allow
+  # books with over 500 pages.
+  # We can't really test this yet because our books don't have a
+  # 'pages' attribute.
+  def test_library_has_standards
+    library = Library.new 'San Francisco Public Library'
+    book = Book.new 'Cat in the Hat', 'Dr. Seuss'
+    library.add book
+    assert_equal library.books, []
+  end
 end
