@@ -11,4 +11,11 @@ class LibraryTest < MiniTest::Test
     library = Library.new 'San Francisco Public Library'
     assert_equal library.books, []
   end
+
+  def test_add_book_to_library
+    library = Library.new 'San Francisco Public Library'
+    book = Book.new 'Wealth of Nations', 'Adam Smith'
+    library.add book
+    assert_equal library.books, [book]
+  end
 end

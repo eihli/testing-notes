@@ -5,4 +5,8 @@ class Library
     @name = name
     @books = []
   end
+
+  def add(book)
+    @books << book
+  end
 end
