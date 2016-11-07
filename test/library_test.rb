@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require_relative '../lib/library'
+require_relative '../lib/book'
 
 class LibraryTest < MiniTest::Test
   def test_library_init_attributes
