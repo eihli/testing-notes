@@ -1,5 +1,85 @@
 # Notes
 
+Example:
+
+```
+class NetsuiteCustomerFormatter
+  include NetsuiteConcern
+
+  def format(payload)
+    {
+      job_id: payload[:workspace_id],
+      # How do you test this? How much setup is needed?
+      assignee_id: interface.client.workspaces.customers[payload[:resource_id]]
+    }
+  end
+end
+
+describe NetsuiteCustomerFormatter do
+  describe "#format" do
+    it "returns a hash including the customer" do
+      payload = {
+        workspace_id: 5,
+        resource_id: 10
+      }
+
+      expected = hash_including({customer: })
+      expect(described_class.format(payload)).to eq(hash_including)
+    end
+  end
+end
+
+class NetsuiteCustomerFormatter
+  include NetsuiteConcern
+
+  def format(payload)
+    {
+      job_id: payload[:workspace_id],
+      assignee_id: interface.get_assignee(payload[:workspace_id]).id
+    }
+  end
+end
+
+describe NetsuiteCustomerFormatter do
+  describe "#format" do
+    it "returns a hash with correct mappings" do
+      payload = {
+        workspace_id: 5,
+        resource_id: 10
+      }
+
+      mock(described_class.interface).get_assignee.with(payload[:workspace_id]) { 11 }
+      actual = described_class.format(payload)
+
+      expected = {
+        job_id: 5,
+        resource_id: 11
+      }
+
+      expect(actual).to eq (expected)
+    end
+  end
+end
+
+class Interface
+  def get_assignee(workspace_id)
+    response = client.get("workspaces/#{workspace_id}", include: 'resource')
+    response['resource']
+  end
+end
+
+describe Interface do
+  describe '#get_assignee' do
+    it 'returns the resource' do
+      VCR.use_cassette('workspace_include_resource') do
+        response = described_class.get("workspaces/#{id}", include: 'resource')
+        expect(response['resource']).to eq {id: '5'}
+      end
+    end
+  end
+end
+```
+
 ## Benefits of functional programming
 
 We've talked a lot about the benefits of functional programming.
