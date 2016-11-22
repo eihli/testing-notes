@@ -1,5 +1,7 @@
 # Notes
 
+- If I deleted all of your code but let you keep your tests, could you reconstruct your code? [https://www.youtube.com/watch?v=XcT4yYu\_TTs](https://www.youtube.com/watch?v=XcT4yYu_TTs)
+
 Example:
 
 ```
