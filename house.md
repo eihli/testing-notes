@@ -168,3 +168,49 @@ But what if your code relies on some other object and THAT's where it's blowing 
 Then you aren't debugging. You are exploring the API (or worse, the implementation) of a dependency. If you have to explore the API of a dependency, that means it's doing something you don't expect. That means it must not have been documented very well. If it's a dependency that we control, and you don't understand it enough to know why it's blowing up, then that is a smell that that dependency needs to have better documentation or be refactored.
 
 While the slides were pretty neat, I think we can all agree that this presentation would not be complete without Mister-E dropping some dope beats.
+
+```
+Stub and mocking
+keeps code rocking
+Dishing out
+async non-blocking
+code that keeps
+M-link tick-tocking
+
+Dependency's for third world nations
+We write code for isolation.
+Minimize test integration
+With modular code formation
+
+You won't have to search the call stack
+For some unrelated callback
+Having to @all in dev-chat
+Just to get yourself back on track
+To the small bug that you thought that
+Was a single point in Piv-Track
+Till you looked and then you saw that
+It's dependencies were so fat
+That you were soon forced to fallback
+To a dozen lines that called Fact-
+ory Girl fixtures and let that
+stateful mess turn you to street crack
+
+Don't you listen to the lies that those stateful fixture's told you
+But reveal from their disguise and see they hide the truth from plain view
+That your code complexity grew
+It's time to once again do
+Refactor what you once knew.
+
+What you once knew, what you now know
+Ain't the same both knowledge and code
+both keep growing as we grow old
+brains expand but code erodes
+
+So head the words of Mister-E
+and take it straight from the Swole-G
+100% full certainty
+Ditch those integration tests
+And give both mocks and stubs respect
+
+Peace
+```
